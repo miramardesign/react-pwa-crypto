@@ -2,14 +2,15 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 
-class CoinDetailComponent extends PureComponent { 
+class CoinDetailComponent extends PureComponent {
 
   constructor(props) {
     super(props);
 
     this.state = {
       hasError: false,
-      coinData: {}
+      coinData: {},
+      lastUpdated: ''
     };
   }
 
@@ -17,11 +18,8 @@ class CoinDetailComponent extends PureComponent {
     console.log('CoinDetailComponent will mount');
   }
 
-  componentDidMount = () => {
-    console.log('CoinDetailComponent mounted');
-
+  getCoin = (coinname) => {
     
-    const coinname = this.props.match.params.id;
     const coinUrl = `https://financialmodelingprep.com/api/v3/cryptocurrency/${coinname}`;
     // https://financialmodelingprep.com/developer/docs/#Cryptocurrencies
     // https://financialmodelingprep.com/api/v3/cryptocurrencies
@@ -34,7 +32,17 @@ class CoinDetailComponent extends PureComponent {
 
           this.setState({
             isLoaded: true,
-            coinData: result
+            coinData: result,
+            lastUpdated: new Intl.DateTimeFormat('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: '2-digit',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit'
+
+            }).format(Date.now())
+
           });
         },
 
@@ -49,6 +57,19 @@ class CoinDetailComponent extends PureComponent {
           });
         }
       )
+  }
+
+  componentDidMount = () => {
+    console.log('CoinDetailComponent mounted');
+
+    const coinname = this.props.match.params.id;
+    let callCoin = this.getCoin(coinname);
+
+    let youCanGetWithThisOrYouCanGetWithThat = this;
+    setInterval(function(){
+      youCanGetWithThisOrYouCanGetWithThat.getCoin(coinname);
+    }, 10000);
+
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -67,14 +88,16 @@ class CoinDetailComponent extends PureComponent {
     console.log('CoinDetailComponent will unmount');
   }
 
-  render () {
+  render() {
     if (this.state.hasError) {
       return <h1>Something went wrong.</h1>;
     }
     return (
       <div className="CoinDetailComponentWrapper">
-       
-         <h1> {this.props.match.params.id} price is {this.state.coinData.price} </h1>;
+
+        <h1> {this.props.match.params.id} price is {this.state.coinData.price} </h1>
+        <h2> Last Update at: {this.state.lastUpdated}
+        </h2>
       </div>
     );
   }

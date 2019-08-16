@@ -63,12 +63,12 @@ class CoinDetailComponent extends PureComponent {
     console.log('CoinDetailComponent mounted');
 
     const coinname = this.props.match.params.id;
-    let callCoin = this.getCoin(coinname);
+    this.getCoin(coinname);
 
     let youCanGetWithThisOrYouCanGetWithThat = this;
     setInterval(function(){
       youCanGetWithThisOrYouCanGetWithThat.getCoin(coinname);
-    }, 10000);
+    }, 8000);
 
   }
 

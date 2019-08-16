@@ -22,26 +22,6 @@ class CoinButton extends PureComponent {
   componentDidMount = () => {
     console.log('CoinButton mounted');
 
-    const coinname = this.props.name;
-    const topUrl = `https://financialmodelingprep.com/api/v3/cryptocurrency/${coinname}`;
-
-    fetch(topUrl)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log('result' + coinname, result);
-
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
   }
 
   componentWillReceiveProps = (nextProps) => {

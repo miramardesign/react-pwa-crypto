@@ -1,12 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+
 class CoinDetailComponent extends PureComponent { 
+
   constructor(props) {
     super(props);
 
     this.state = {
       hasError: false,
+      coinData: {}
     };
   }
 
@@ -16,6 +19,36 @@ class CoinDetailComponent extends PureComponent {
 
   componentDidMount = () => {
     console.log('CoinDetailComponent mounted');
+
+    
+    const coinname = this.props.match.params.id;
+    const coinUrl = `https://financialmodelingprep.com/api/v3/cryptocurrency/${coinname}`;
+    // https://financialmodelingprep.com/developer/docs/#Cryptocurrencies
+    // https://financialmodelingprep.com/api/v3/cryptocurrencies
+
+    fetch(coinUrl)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log('result' + coinname, result);
+
+          this.setState({
+            isLoaded: true,
+            coinData: result
+          });
+        },
+
+
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -41,7 +74,7 @@ class CoinDetailComponent extends PureComponent {
     return (
       <div className="CoinDetailComponentWrapper">
        
-         <h1> {this.props.match.params.id} price is </h1>;
+         <h1> {this.props.match.params.id} price is {this.state.coinData.price} </h1>;
       </div>
     );
   }

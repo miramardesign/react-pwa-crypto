@@ -54,12 +54,6 @@ class HomeComponent extends PureComponent {
   }
 }
 
-HomeComponent.propTypes = {
-  // bla: PropTypes.string,
-};
 
-HomeComponent.defaultProps = {
-  // bla: 'test',
-};
 
 export default HomeComponent;

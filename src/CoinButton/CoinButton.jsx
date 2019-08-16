@@ -22,15 +22,14 @@ class CoinButton extends PureComponent {
   componentDidMount = () => {
     console.log('CoinButton mounted');
 
-    const name = this.props.name;
-    const topUrl = `https://www.reddit.com/r/all/top.json?coin=${name}`;
+    const coinname = this.props.name;
+    const topUrl = `https://financialmodelingprep.com/api/v3/cryptocurrency/${coinname}`;
 
     fetch(topUrl)
       .then(res => res.json())
       .then(
         (result) => {
-          console.log('result', result.data.children);
-
+          console.log('result' + coinname, result);
 
         },
         // Note: it's important to handle errors here

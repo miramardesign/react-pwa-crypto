@@ -68,7 +68,7 @@ class CoinDetailComponent extends PureComponent {
     let youCanGetWithThisOrYouCanGetWithThat = this;
     setInterval(function(){
       youCanGetWithThisOrYouCanGetWithThat.getCoin(coinname);
-    }, 8000);
+    }, 1000 * 60 * 60);
 
   }
 

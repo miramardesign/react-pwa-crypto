@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import RefreshButton from './RefreshButton';
+import RefreshButton from '../components/RefreshButton';
 
 export function createRefreshButton(attrs) {
   return {

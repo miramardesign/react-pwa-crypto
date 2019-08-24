@@ -1,43 +1,43 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-
-// import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function CoinButton({
-  coinButton: { id, coinName, disabled = false },
+  coinButton: { id, coinName, disabled },
   onDisabledButton,
-  onBitcoinButton,
-  onEthereumButton,
-  onLitecoinButton,
 }) {
   return (
     <React.Fragment>
-      {/* FIX: fix routing */}
-      {/* <Link
+      <Link
         to={{
           pathname: '/details/' + coinName,
         }}
-      > */}
-      <Button variant='outline-secondary' disabled={disabled} block>
-        {coinName}
-      </Button>
-      {/* </Link> */}
-      {/* <Route path="/details/:id" component={CoinDetailComponent} /> */}
+      >
+        <Button
+          id={`button-list-${id}`}
+          variant='outline-secondary'
+          disabled={disabled}
+          block
+        >
+          {coinName}
+        </Button>
+      </Link>
     </React.Fragment>
   );
 }
 
 CoinButton.propTypes = {
   coinButton: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     coinName: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
   }),
   onDisabledButton: PropTypes.func,
-  onBitcoinButton: PropTypes.func,
-  onEthereumButton: PropTypes.func,
-  onLitecoinButton: PropTypes.func,
+};
+
+CoinButton.defaultProps = {
+  disabled: false,
 };
 
 export default CoinButton;

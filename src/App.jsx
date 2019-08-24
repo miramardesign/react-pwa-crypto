@@ -22,7 +22,6 @@ function App() {
                 </li>
               </ul>
             </nav>
-
             <Route path="/" exact component={HomeComponent} />
             <Route path="/details/:id" component={CoinDetailComponent} />
           </div>

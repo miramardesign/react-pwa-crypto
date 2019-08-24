@@ -1,72 +1,43 @@
-import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Button from 'react-bootstrap/Button';
 
-import { Link } from 'react-router-dom';
-let coinname;
+// import { BrowserRouter as Router, Link } from 'react-router-dom';
 
-class CoinButton extends PureComponent {
-  constructor(props) {
-    super(props);
-      
-    coinname = this.props.name
-    this.state = {
-      hasError: false,
-    };
-  }
-
-  componentWillMount = () => {
-    console.log('CoinButton will mount');
-  }
-
-  componentDidMount = () => {
-    console.log('CoinButton mounted');
-
-  }
-
-  componentWillReceiveProps = (nextProps) => {
-    console.log('CoinButton will receive props', nextProps);
-  }
-
-  componentWillUpdate = (nextProps, nextState) => {
-    console.log('CoinButton will update', nextProps, nextState);
-  }
-
-  componentDidUpdate = () => {
-    console.log('CoinButton did update');
-  }
-
-  componentWillUnmount = () => {
-    console.log('CoinButton will unmount');
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
-    return (
-      <div className="CoinButtonWrapper">
-
-        <Link to={{
-          pathname: '/details/' + coinname
-          }}>
-
-          <button>
-            {coinname}
-
-          </button>
-
-        </Link>
-
-      </div>
-    );
-  }
+function CoinButton({
+  coinButton: { id, coinName, disabled = false },
+  onDisabledButton,
+  onBitcoinButton,
+  onEthereumButton,
+  onLitecoinButton,
+}) {
+  return (
+    <React.Fragment>
+      {/* FIX: fix routing */}
+      {/* <Link
+        to={{
+          pathname: '/details/' + coinName,
+        }}
+      > */}
+      <Button variant='outline-secondary' disabled={disabled} block>
+        {coinName}
+      </Button>
+      {/* </Link> */}
+      {/* <Route path="/details/:id" component={CoinDetailComponent} /> */}
+    </React.Fragment>
+  );
 }
 
 CoinButton.propTypes = {
-  // bla: PropTypes.string,
-};
-
-CoinButton.defaultProps = {
-  // bla: 'test',
+  coinButton: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    coinName: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+  }),
+  onDisabledButton: PropTypes.func,
+  onBitcoinButton: PropTypes.func,
+  onEthereumButton: PropTypes.func,
+  onLitecoinButton: PropTypes.func,
 };
 
 export default CoinButton;

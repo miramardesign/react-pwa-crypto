@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+
 import CoinButton from '../components/CoinButton';
 
 class HomeComponent extends PureComponent {
@@ -6,52 +7,26 @@ class HomeComponent extends PureComponent {
     super(props);
 
     this.state = {
-      hasError: false,
-      coins: ['btc', 'ltc', 'eth']
+      coins: [
+        { id: 1, coinName: 'BTC', disabled: false },
+        { id: 2, coinName: 'ETH', disabled: false },
+        { id: 3, coinName: 'LTC', disabled: false },
+      ],
     };
   }
 
-  componentWillMount = () => {
-    console.log('HomeComponent will mount');
-  }
-
-  componentDidMount = () => {
-    console.log('HomeComponent mounted');
-  }
-
-  componentWillReceiveProps = (nextProps) => {
-    console.log('HomeComponent will receive props', nextProps);
-  }
-
-  componentWillUpdate = (nextProps, nextState) => {
-    console.log('HomeComponent will update', nextProps, nextState);
-  }
-
-  componentDidUpdate = () => {
-    console.log('HomeComponent did update');
-  }
-
-  componentWillUnmount = () => {
-    console.log('HomeComponent will unmount');
-  }
-
   render() {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
     return (
       <div className="HomeComponentWrapper">
         <h1>Crypto Prices Yo!</h1>
-        {this.state.coins.map(item => (
+        {this.state.coins.map(coin => (
           <div>
-            <CoinButton name={item}> ></CoinButton>
+            <CoinButton coinButton={coin}> ></CoinButton>
           </div>
         ))}
       </div>
     );
   }
 }
-
-
 
 export default HomeComponent;

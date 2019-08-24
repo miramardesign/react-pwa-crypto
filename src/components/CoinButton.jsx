@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-//import { Test } from './CoinButton.styles';
-import {  Link } from "react-router-dom";
 
+import { Link } from 'react-router-dom';
 let coinname;
 
 class CoinButton extends PureComponent {

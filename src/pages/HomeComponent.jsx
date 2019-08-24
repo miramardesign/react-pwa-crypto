@@ -1,7 +1,5 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import CoinButton from '../CoinButton/CoinButton';
-//import { Test } from './HomeComponent.styles';
+import CoinButton from '../components/CoinButton';
 
 class HomeComponent extends PureComponent {
   constructor(props) {

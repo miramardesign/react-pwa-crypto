@@ -1,14 +1,15 @@
-import React from "react";
-import "./App.css";
-import HomeComponent from "./HomeComponent";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import CoinDetailComponent from "./CoinDetailComponent/CoinDetailComponent";
+import './App.css';
+
+import React from 'react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+
+import HomeComponent from './pages/HomeComponent';
+import CoinDetailComponent from './pages/CoinDetailComponent';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-
         <Router>
           <div>
             <nav>

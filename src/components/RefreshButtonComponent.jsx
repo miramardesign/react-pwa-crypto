@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-//import { Test } from './RefreshButtonComponent.styles';
 
 class RefreshButtonComponent extends PureComponent { 
   constructor(props) {

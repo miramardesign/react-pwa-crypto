@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-//import { Test } from './CoinPriceComponent.styles';
 
 class CoinPriceComponent extends PureComponent { 
   constructor(props) {

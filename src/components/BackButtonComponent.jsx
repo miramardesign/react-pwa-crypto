@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-//import { Test } from './BackButtonComponent.styles';
 
 class BackButtonComponent extends PureComponent { 
   constructor(props) {

@@ -6,7 +6,7 @@ import CoinButton from './CoinButton';
 
 export function createCoinButton(attrs) {
   return {
-    id: Math.round(Math.random() * 1000000).toString(),
+    id: Math.round(Math.random() * 1000000),
     coinName: 'COIN',
     disabled: false,
     updatedAt: Date.now(),
@@ -16,9 +16,6 @@ export function createCoinButton(attrs) {
 
 export const actions = {
   onDisabledButton: action('onDisabledButton'),
-  onBitcoinButton: action('onDisabledButton'),
-  onEthereumButton: action('onEthereumButton'),
-  onLitecoinButton: action('onLitecoinButton'),
 };
 
 storiesOf('CoinButton', module)
@@ -31,24 +28,6 @@ storiesOf('CoinButton', module)
   .add('disabled', () => (
     <CoinButton
       coinButton={createCoinButton({ disabled: true })}
-      {...actions}
-    />
-  ))
-  .add('btc', () => (
-    <CoinButton
-      coinButton={createCoinButton({ coinName: 'BTC', disabled: false })}
-      {...actions}
-    />
-  ))
-  .add('eth', () => (
-    <CoinButton
-      coinButton={createCoinButton({ coinName: 'ETH', disabled: false })}
-      {...actions}
-    />
-  ))
-  .add('ltc', () => (
-    <CoinButton
-      coinButton={createCoinButton({ coinName: 'LTC', disabled: false })}
       {...actions}
     />
   ));

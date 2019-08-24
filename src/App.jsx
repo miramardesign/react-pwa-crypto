@@ -3,7 +3,7 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
-import HomeComponent from './pages/HomeComponent';
+import HomePage from './pages/HomePage';
 import CoinDetailComponent from './pages/CoinDetailComponent';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
                 </li>
               </ul>
             </nav>
-            <Route path="/" exact component={HomeComponent} />
+            <Route path="/" exact component={HomePage} />
             <Route path="/details/:id" component={CoinDetailComponent} />
           </div>
         </Router>

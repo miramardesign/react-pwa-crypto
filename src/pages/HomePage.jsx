@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 import CoinButton from '../components/CoinButton';
 
-class HomeComponent extends PureComponent {
+class HomePage extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -29,4 +29,4 @@ class HomeComponent extends PureComponent {
   }
 }
 
-export default HomeComponent;
+export default HomePage;

@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import CoinPriceDate from './CoinPriceDate';
+import CoinPriceDate from '../components/CoinPriceDate';
 
 export function createCoinPriceDate(attrs) {
   return {

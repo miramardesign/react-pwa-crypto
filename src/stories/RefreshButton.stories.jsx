@@ -2,12 +2,12 @@ import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import CoinButton from './CoinButton';
+import RefreshButton from '../components/RefreshButton';
 
-export function createCoinButton(attrs) {
+export function createRefreshButton(attrs) {
   return {
-    id: Math.round(Math.random() * 1000000),
-    coinName: 'COIN',
+    id: Math.round(Math.random() * 1000000).toString(),
+    label: 'Refresh',
     disabled: false,
     updatedAt: Date.now(),
     ...attrs,
@@ -18,16 +18,16 @@ export const actions = {
   onDisabledButton: action('onDisabledButton'),
 };
 
-storiesOf('CoinButton', module)
+storiesOf('RefreshButton', module)
   .add('default', () => (
-    <CoinButton
-      coinButton={createCoinButton({ disabled: false })}
+    <RefreshButton
+      refreshButton={createRefreshButton({ disabled: false })}
       {...actions}
     />
   ))
   .add('disabled', () => (
-    <CoinButton
-      coinButton={createCoinButton({ disabled: true })}
+    <RefreshButton
+      refreshButton={createRefreshButton({ disabled: true })}
       {...actions}
     />
   ));

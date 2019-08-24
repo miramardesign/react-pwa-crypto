@@ -3,13 +3,13 @@ import React from 'react';
 
 import CoinButton from './CoinButton';
 
-function CoinButtonList({ id, coins, onDisabledButton }) {
+function CoinButtonList({ coins, onDisabledButton }) {
   const events = {
     onDisabledButton,
   };
 
   return (
-    <React.Fragment id={`button-list-${id}`} className='button-list'>
+    <React.Fragment>
       {coins.map(coin => (
         <CoinButton key={coin.id} coinButton={coin} {...events}></CoinButton>
       ))}
@@ -18,7 +18,6 @@ function CoinButtonList({ id, coins, onDisabledButton }) {
 }
 
 CoinButtonList.propTypes = {
-  id: PropTypes.number.isRequired,
   coins: PropTypes.arrayOf(CoinButton.propTypes.coinButton).isRequired,
   onDisabledButton: PropTypes.func,
 };

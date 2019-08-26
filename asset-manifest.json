@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-pwa-crypto/static/css/main.2cce8147.chunk.css",
+    "main.js": "/react-pwa-crypto/static/js/main.5626213e.chunk.js",
+    "main.js.map": "/react-pwa-crypto/static/js/main.5626213e.chunk.js.map",
+    "runtime~main.js": "/react-pwa-crypto/static/js/runtime~main.c34137df.js",
+    "runtime~main.js.map": "/react-pwa-crypto/static/js/runtime~main.c34137df.js.map",
+    "static/js/2.c7274c25.chunk.js": "/react-pwa-crypto/static/js/2.c7274c25.chunk.js",
+    "static/js/2.c7274c25.chunk.js.map": "/react-pwa-crypto/static/js/2.c7274c25.chunk.js.map",
+    "index.html": "/react-pwa-crypto/index.html",
+    "precache-manifest.beae15c82cc7177cb6ce695837d5266c.js": "/react-pwa-crypto/precache-manifest.beae15c82cc7177cb6ce695837d5266c.js",
+    "service-worker.js": "/react-pwa-crypto/service-worker.js",
+    "static/css/main.2cce8147.chunk.css.map": "/react-pwa-crypto/static/css/main.2cce8147.chunk.css.map"
+  }
+}

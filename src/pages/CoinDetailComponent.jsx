@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import BackButton from '../components/BackButton';
 
 class CoinDetailComponent extends PureComponent {
 
@@ -19,9 +20,7 @@ class CoinDetailComponent extends PureComponent {
   getCoin = (coinname) => {
     
     const coinUrl = `https://financialmodelingprep.com/api/v3/cryptocurrency/${coinname}`;
-    // https://financialmodelingprep.com/developer/docs/#Cryptocurrencies
-    // https://financialmodelingprep.com/api/v3/cryptocurrencies
-
+ 
     fetch(coinUrl)
       .then(res => res.json())
       .then(
@@ -87,6 +86,9 @@ class CoinDetailComponent extends PureComponent {
   }
 
   render() {
+
+    let backbutton = {label: "backyo", id: 55};
+
     if (this.state.hasError) {
       return <h1>Something went wrong.</h1>;
     }
@@ -94,8 +96,12 @@ class CoinDetailComponent extends PureComponent {
       <div className="CoinDetailComponentWrapper">
 
         <h1> {this.props.match.params.id} price is {this.state.coinData.price} </h1>
-        <h2> Last Update at: {this.state.lastUpdated}
+        <h2> 
+          Last Update at: {this.state.lastUpdated}
         </h2>
+
+         {/* <Link to="/">Home</Link> */}
+        <BackButton backButton={backbutton} to="/" ></BackButton>
       </div>
     );
   }
